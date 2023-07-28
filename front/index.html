@@ -88,7 +88,7 @@
 	<script src="assets/js/app.js"></script>
 	<script src="assets/js/call_api.js"></script>
     <script>
-        fetchJSON("http://localhost:8000/public/?url=beneficiaries/index")
+        fetchJSON("?url=beneficiaries/index")
         .then(result => { 
             let html_body = '';
             for (const row of result) { 
