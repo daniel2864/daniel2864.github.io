@@ -24,7 +24,7 @@ class Plan {
 
     static function externalData()
     {
-        $json = file_get_contents('../../plans.json');  
+        $json = file_get_contents(__DIR__.'/plans.json');  
 
         if($json === false){
             return [];

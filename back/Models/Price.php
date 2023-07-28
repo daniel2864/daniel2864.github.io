@@ -24,7 +24,7 @@ class Price  {
  
      static function externalData()
      {
-         $json = file_get_contents('../../prices.json');  
+         $json = file_get_contents(__DIR__.'/prices.json');  
  
          if($json === false){
              return [];
