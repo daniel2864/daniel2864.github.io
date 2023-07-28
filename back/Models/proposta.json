@@ -1,0 +1,4 @@
+[
+{"codigo":"1","quantidade_beneficiarios":2,"plano":{"registro":"reg2","nome":"Bitix Customer Plano 2","codigo":2},"beneficiarios":[{"name":"juan","age":"32","price":30},{"name":"carlos","age":"12","price":20}]},
+{"codigo":"2","quantidade_beneficiarios":1,"plano":{"registro":"reg3","nome":"Bitix Customer Plano 3","codigo":3},"beneficiarios":[{"name":"marlon","age":"21","price":40}]}
+]

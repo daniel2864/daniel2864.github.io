@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Planos - Test</title>
+	<link rel="stylesheet" href="assets/css/style.css"> 
+</head>
+
+<body>
+
+ 
+	<header>
+
+		<div class="logosec">
+			<div class="logo">Test</div> 
+		</div>
+
+	 
+
+	</header>
+
+	<div class="main-container">
+		<div class="navcontainer">
+			<nav class="nav">
+				<div class="nav-upper-options">
+					<div class="nav-option option1 dashboard">
+						 
+						<img src="assets/images/dashboard.png" class="nav-img" alt="dashboard">
+						<h3> Dashboard</h3> 
+					</div>
+
+					<div class="option2 nav-option btn-plan">
+						<img src="assets/images/5.png" class="nav-img" alt="Planos">
+						<h3> Planos</h3>
+					</div>
+
+					<div class="nav-option option3 btn-price">
+						<img src="assets/images/5.png" class="nav-img" alt="preços">
+						<h3> Preços</h3>
+					</div>
+ 
+
+				</div>
+			</nav>
+		</div>
+		<div class="main">
+
+ 
+ 
+
+			<div class="report-container">
+				<div class="report-header">
+					<h1 class="recent-Articles">Planos</h1>  
+				</div>
+                <div style="width: 100%;">
+                    <table style="width: 100% !important;">
+                     
+                        <thead>
+                            <tr>
+                               <th class="col_cod">#</th>
+                               <th>Registro</th>
+                               <th>Nome</th> 
+                            </tr>
+                        </thead>
+                        <tbody class="items">
+
+                        </tbody>
+                    
+                </table>
+
+                </div>
+              
+                    
+              
+                
+
+				 
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/call_api.js"></script>
+    <script>
+        fetchJSON("http://localhost:8000/public/?url=plans/index")
+        .then(result => { 
+            let html_body = '';
+            for (const row of result) {  
+                html_body =  html_body + '<tr">';
+                html_body =  html_body + '<td class="col_cod center_text">'+ row.codigo +'</td>';
+                html_body =  html_body + '<td class="center_text" >'+ row.registro +'</td>';
+                html_body =  html_body + '<td class="center_text">'+ row.nome+'</td>'; 
+                html_body =  html_body + '</tr>';
+            }
+          
+            document.querySelector(".items").innerHTML = html_body;
+            
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+     
+       
+    </script>
+</body>
+</html>

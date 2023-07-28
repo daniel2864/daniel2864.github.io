@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro - Test</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- <link rel="stylesheet" href="responsive.css"> -->
+</head>
+
+<body>
+
+	<!-- for header part -->
+	<header>
+
+		<div class="logosec">
+			<div class="logo">Test</div> 
+		</div>
+
+	 
+
+	</header>
+
+	<div class="main-container">
+		<div class="navcontainer">
+			<nav class="nav">
+				<div class="nav-upper-options">
+					<div class="nav-option option1 dashboard">
+						 
+						<img src="assets/images/dashboard.png" class="nav-img" alt="dashboard">
+						<h3> Dashboard</h3> 
+					</div>
+
+					<div class="option2 nav-option btn-plan">
+						<img src="assets/images/5.png" class="nav-img" alt="Planos">
+						<h3> Planos</h3>
+					</div>
+
+					<div class="nav-option option3 btn-price">
+						<img src="assets/images/5.png" class="nav-img" alt="preços">
+						<h3> Preços</h3>
+					</div>
+
+					 
+
+				</div>
+			</nav>
+		</div>
+		<div class="main">
+
+ 
+ 
+
+			<div class="form-container">
+				<div class="report-header">
+					<h1 class="recent-Articles">Cadastrar beneficiários</h1> 
+                    <button class="btn_right btn-register-data">Cadastrar</button> 
+				</div>
+                <div style="width: 100%;">
+					<div class="row">
+						<input type="number" id="quantidade" min="1" max="99" step="1" placeholder="Quantidade de beneficiários"   onblur="checkBeneficiarios(this.value)" onkeyup="checkBeneficiarios(this.value)" class="full_width input-form cant_beneifiarios">
+					</div>
+					<div class="row">
+						<select name="plano" id="plano_data" class="full_width input-form select-plano"> 
+
+						</select>
+					</div>
+
+					<div class="row">
+						<h3>Beneficiários:</h3>
+					</div> 
+					<div class="row head-add-beneficiarios">
+						<div class="col row-add-beneficiarios-nome">Nome</div>
+						<div class="col row-add-beneficiarios-idade">Idade</div>
+					</div>
+					<div id="content_beneficiarios"> 
+					</div> 
+
+                </div> 
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/call_api.js"></script>
+    <script>
+       
+
+
+		fetchJSON("http://localhost:8000/public/?url=plans/index")
+        .then(result => { 
+            let html_select = '<option value="" disabled selected>Selecione um plano</option>';
+            for (const row of result) {   
+                html_select =  html_select + '<option value="'+row.codigo+'">'+row.nome+'</option>'; 
+            }
+          
+            document.querySelector("#plano_data").innerHTML = html_select;
+            
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+     
+       
+    </script>
+</body>
+</html>
